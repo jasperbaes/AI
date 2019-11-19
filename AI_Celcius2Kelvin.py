@@ -19,4 +19,4 @@ history = model.fit(celcius_q, kelvin_a, epochs=9000, verbose=False)
 
 for cel in celcius_testset:
     print("[{}] ({}, {})".format(colored('+', 'green'), cel, model.predict([cel])[0][0]))
-print("Layer variables weights: {} and {}".format(l0.get_weights()[0][0][0], l0.get_weights()[1][0]))
+print("Layer weights: {} and {}".format(l0.get_weights()[0][0][0], l0.get_weights()[1][0]))
