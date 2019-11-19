@@ -1,4 +1,4 @@
-# Basic AI - Jasper Baes
+# Basic Machine Learning - Jasper Baes
 
 ## Installation:
 ```
