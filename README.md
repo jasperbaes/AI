@@ -1,10 +1,5 @@
 # Basic AI - Jasper Baes
 
 Projects:
-- [Basic](https://github.com/jasperbaes/AI/Basic/)
-- [Bayes](https://github.com/jasperbaes/Bayes)
-
-
-
-
-
+- [Basic](https://github.com/jasperbaes/AI/tree/master/Basic)
+- [Bayes](https://github.com/jasperbaes/AI/tree/master/Bayes)
