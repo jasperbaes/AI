@@ -48,3 +48,14 @@ else:
 
     print("{0} vs {1}".format(round(data.res1, 4), round(data.res2, 4)))
     print("The chance of {0} is {1} times bigger then {2} ".format(data.res1 > data.res2, round(data.res1/data.res2 if data.res1 > data.res2 else data.res2/data.res1, 2) , data.res1 < data.res2))
+    times_bigger = data.res1/data.res2 if data.res1 > data.res2 else data.res2/data.res1
+
+    if (data.res1 < data.res2):
+        chance_true = 100/times_bigger
+        chance_false = 100 - chance_true
+    else:
+        chance_false = 100/times_bigger
+        chance_true = 100 - chance_false
+
+    print("TRUE  :  {0}%".format(round(chance_true, 2)))
+    print("FALSE :  {0}%".format(round(chance_false, 2)))
