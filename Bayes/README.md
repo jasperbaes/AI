@@ -1,30 +1,31 @@
-# Binary Bayes - Jasper Baes
+# Binary Naive Bayes - Jasper Baes
 
-By feeding this program some binary training data, it will predict other cases (classification).
+By feeding this program some binary training data, it can classify a new record. </br>
+This method is relatively simple, but not the most accurate. Especially not with small training datasets.
+
+## Example
+1 = True  = Yes <br>
+0 = False = No
+
+| Adult | Employed | Married | Women | Alcoholic |
+| ----- | -------- | ------- | ----- | --------- |
+| 1     | 0        | 0       | 0     | 1         |
+| 1     | 0        | 1       | 0     | 1         |
+| 0     | 1        | 0       | 1     | 1         |
+| 0     | 0        | 0       | 1     | 0         |
+| 1     | 1        | 1       | 0     | 0         |
+| 1     | 0        | 1       | 1     | 0         |
+| 1     | 0        | 0       | 1     | 0         |
+| 0     | 1        | 0       | 0     | 0         |
+| 0     | 1        | 1       | 1     | ???       |
+
+This will predict the outcome of the last record.
 
 ## Usage
-1 = True <br>
-0 = False
-
-| Option 1 | Option 2 | Option 3 | Option 4 | Result |
-| -------- | -------- | -------- | -------- | ------ |
-| 1        | 0        | 0        | 0        | 1      |
-| 1        | 0        | 1        | 0        | 1      |
-| 0        | 1        | 0        | 1        | 1      |
-| 0        | 0        | 0        | 1        | 0      |
-| 1        | 1        | 1        | 0        | 0      |
-| 1        | 0        | 1        | 1        | 0      |
-| 1        | 0        | 0        | 1        | 0      |
-| 0        | 1        | 0        | 0        | 0      |
-| 0        | 1        | 1        | 1        | ???    |
-
-This will predict the outcome of the last record
-
 ```
 $ python3 run.py 
- 0.021 vs 0.0027
- The chance of True is 7.69 times bigger then False 
- ========================================================
- TRUE  :  86.99%
- FALSE :  13.01%
+ 0.0046 vs 0.024
+ The chance of False is 5.18 times bigger then True 
+ TRUE  :  16.17%
+ FALSE :  83.83%
 ```
