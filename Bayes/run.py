@@ -1,10 +1,15 @@
-#!/usr/bin/env python 
-import train_data as data
+#!/usr/bin/env python
+
+# The last array in the training data is the result of that record
+import train_data3 as data
 import math
 
 LEN_INPUT = len(data.o)
 
+
 def checkInput():
+    # Checks if the training data arrays have the same length
+    # Checks if the result array has the correct length
     len_input = len(data.o[0])
     for arr in data.o:
         if (len(arr) != len(data.o[0])):
@@ -13,24 +18,47 @@ def checkInput():
         return False
     return True
 
+
 def calc_chance(val_true, len, options):
+    # Calculates the probability that the result is True or False
     res = val_true/len
     for option in options:
         res *= (option/val_true)
     return res
 
+
 def calc_amount(array, r, type):
+    # Returns the amount of True/False values where the result is True/False
     count = 0
     for index, val in enumerate(array):
         if (data.o[LEN_INPUT-1][index] == type and val == r):
             count += 1
     return count
 
+
 def calc_options(state):
+    # Returns an array with the amounts of each option
     options = []
     for x in range(LEN_INPUT-1):
         options.append(calc_amount(data.o[x], data.r[x], state))
     return options
+
+
+def calc_percentage_true(res1, res2):
+    return res1 / (res1 + res2) * 100 if res1 < res2 else res2 / (res1 + res2) * 100
+
+
+def output(res1, res2):
+    # print(" {0} vs {1}".format(round(res1, 4), round(res2, 4)))
+    # times_bigger = res1/res2 if res1 > res2 else res2/res1
+    # print(" The chance of {0} is {1} times bigger then {2} ".format(res1 > res2, round(times_bigger, 2), res1 < res2))
+
+    chance_true = calc_percentage_true(res1, res2)
+    chance_false = 100 - chance_true
+
+    print(" TRUE  :  {0}%".format(round(chance_true, 2)))
+    print(" FALSE :  {0}%".format(round(chance_false, 2)))
+
 
 def init():
     if (not checkInput()):
@@ -49,21 +77,6 @@ def init():
         )
 
         output(res1, res2)
-
-def output(res1, res2):
-    print("{0} vs {1}".format(round(res1, 4), round(res2, 4)))
-    times_bigger = res1/res2 if res1 > res2 else res2/res1
-    print("The chance of {0} is {1} times bigger then {2} ".format(res1 > res2, round(times_bigger, 2) , res1 < res2))
-    
-    if (res1 < res2):
-        chance_true = 100/times_bigger
-        chance_false = 100 - chance_true
-    else:
-        chance_false = 100/times_bigger
-        chance_true = 100 - chance_false
-
-    print("TRUE  :  {0}%".format(round(chance_true, 2)))
-    print("FALSE :  {0}%".format(round(chance_false, 2)))
 
 
 if (__name__ == "__main__"):
