@@ -1,13 +1,13 @@
 #!/usr/bin/env python
-
-# The last array in the training data is the result of that record
+import sys
+sys.path.insert(0, './training_data')
 import train_data2 as data
 import math
 
 LEN_INPUT = len(data.o)
 
 
-def checkInput():
+def validInput():
     # Checks if the training data arrays have the same length
     # Checks if the result array has the correct length
     len_input = len(data.o[0])
@@ -22,7 +22,7 @@ def checkInput():
 def calc_chance(val_true, len, options):
     # Calculates the probability that the result is True or False
     if (val_true == 0):
-        return 0  # m-schatting
+        return 0  # not accurate (m-prediction would be better)
     res = val_true/len
     for option in options:
         res *= (option/val_true)
@@ -53,18 +53,17 @@ def calc_percentage_true(res1, res2):
 def output(res1, res2):
     # print(" {0} vs {1}".format(round(res1, 4), round(res2, 4)))
     # times_bigger = res1/res2 if res1 > res2 else res2/res1
-    # print(" The chance of {0} is {1} times bigger then {2} ".format(
-    #     res1 > res2, round(times_bigger, 2), res1 < res2))
+    # print(" The chance of {0} is {1} times bigger then {2} ".format(res1 > res2, round(times_bigger, 2), res1 < res2))
 
     chance_true = calc_percentage_true(res1, res2)
     chance_false = 100 - chance_true
-
+    print("Prediction for {0}".format(data.r))
     print(" True / Yes  :  {0}%".format(round(chance_true, 2)))
     print(" False / No  :  {0}%".format(round(chance_false, 2)))
 
 
 def init():
-    if (not checkInput()):
+    if (not validInput()):
         print("Oops, the input is not correct")
     else:
         res1 = calc_chance(
