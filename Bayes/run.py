@@ -82,7 +82,7 @@ if (__name__ == "__main__"):
     # Import data and set global variables
     global data
     global LEN_INPUT
-    import train_data4 as data
+    import train_data6 as data
     LEN_INPUT = len(data.o)
 
     init()
