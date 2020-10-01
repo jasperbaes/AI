@@ -1,0 +1,15 @@
+a,b,c,d,e
+<=30,high,FALSE,fair,FALSE
+<=30,high,FALSE,excellent,FALSE
+31...40,high,FALSE,fair,TRUE
+>40,medium,FALSE,fair,TRUE
+>40,low,TRUE,fair,TRUE
+>40,low,TRUE,excellent,FALSE
+31...40,low,TRUE,excellent,TRUE
+<=30,medium,FALSE,fair,FALSE
+<=30,low,TRUE,fair,TRUE
+>40,medium,TRUE,fair,TRUE
+<=30,medium,TRUE,excellent,TRUE
+31...40,medium,FALSE,excellent,TRUE
+31...40,high,TRUE,fair,TRUE
+>40,medium,FALSE,excellent,FALSE

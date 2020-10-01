@@ -10,3 +10,11 @@ o = [
 
 # What we know
 r = [0, 0]
+
+
+import numpy as np
+o = np.array(o).T.tolist()
+
+for x in o:
+    print(x[2])
+
